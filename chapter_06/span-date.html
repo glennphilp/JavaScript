@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Using JavaScript to Change Text Value of Span</title>
+        <script type="text/javascript">
+            var $ = function (id) { return document.getElementById(id); }
+
+            var now = new Date();
+
+            var month = now.getMonth() + 1;
+            var day = now.getDay();
+            if (day < 10) day = "0" + day;
+            var year = now.getFullYear();
+
+            var dateText = month + "/" + day + "/" + year;
+
+            $("date_output").firstChild.nodeValue = dateText; //Breaking on JS runtime error, Error: Unable to get property 'firstChild' of undefined or null reference
+        </script>
+    </head>
+    <body>
+        <p>Today is <span id="date_output">&nbsp;</span>.</p>
+    </body>
+</html>
